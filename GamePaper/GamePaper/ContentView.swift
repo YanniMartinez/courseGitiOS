@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let moves = ["Rock","Paper","Scissors"]
+    
     var body: some View {
         ZStack{
             BackgroundColor()
@@ -21,6 +24,21 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .padding(.top,100)
             }
+            HStack{
+                ForEach(0 ..< moves.count){ moveId in
+                    Button(action: {
+                        
+                    }){
+                        Text("\(self.moves[moveId])")
+                            .frame(width: 80,height: 100)
+                            .foregroundColor(.white)
+                    }
+                    .frame(width: 100,height: 100,alignment: .center)
+                    
+                    
+                }
+            }
+            
             
         }
     }

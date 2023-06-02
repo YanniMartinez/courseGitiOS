@@ -62,8 +62,8 @@ struct ContentView: View {
                             .scaleEffect( userSelected == moveId ? 1.5 : 1.0)
                             .alert(isPresented: self.$showingAlert){
                                 //TODO: Presentara el score del usuario y sabra si gano o perdio tras X intentos
-                                Alert(title: Text("Hello"),
-                                      message: Text("Presionaste: \(moves[moveId])"),
+                                Alert(title: Text("Game over"),
+                                      message: Text("Your final score is \(self.userScore)"),
                                       dismissButton: .default(Text("Ok")))
                             }
                             

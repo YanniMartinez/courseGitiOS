@@ -15,28 +15,32 @@ struct ContentView: View {
         ZStack{
             BackgroundColor()
             VStack{
-                Text("Steps: ")
-                    .font(.title)
-                Text("Your Score is: ")
-                    .font(.title)
-                ImageCarouselView()
-                Text("Select your option")
-                    .font(.largeTitle)
-                    .padding(.top,100)
-            }
-            HStack{
-                ForEach(0 ..< moves.count){ moveId in
-                    Button(action: {
-                        
-                    }){
-                        Text("\(self.moves[moveId])")
-                            .frame(width: 80,height: 100)
-                            .foregroundColor(.white)
+                
+                    
+                    VStack(spacing: 45){
+                        Text("Steps: ")
+                            .font(.title)
+                        Text("Your Score is: ")
+                            .font(.title)
+                        ImageCarouselView()
+                        Text("Select your option")
+                            .font(.largeTitle)
+                            .padding(.top,100)
                     }
-                    .frame(width: 100,height: 100,alignment: .center)
-                    
-                    
-                }
+                    HStack{
+                        ForEach(0 ..< moves.count){ moveId in
+                            Button(action: {
+                                
+                            }){
+                                Text("\(self.moves[moveId])")
+                                    .frame(width: 80,height: 100)
+                                    .foregroundColor(.white)
+                            }
+                            .frame(width: 100,height: 100,alignment: .center)
+                            
+                            
+                        }
+                    }
             }
             
             

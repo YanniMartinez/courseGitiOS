@@ -25,8 +25,7 @@ struct ContentView: View {
                 
                     
                     VStack(spacing: 45){
-                        Text("maquina: \(currentAppChoice)")
-                            .font(.title)
+                        
                         Text("Steps: \(currentStep)/10")
                             .font(.title)
                         Text("Your Score is: \(userScore)")

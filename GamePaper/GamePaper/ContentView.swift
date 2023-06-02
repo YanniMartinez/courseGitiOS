@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showingAlert = false
     @State private var currentStep = 1
     @State private var userScore = 0
+    @State var isAnimating = true
     
     var body: some View {
         ZStack{
@@ -29,7 +30,7 @@ struct ContentView: View {
                             .font(.title)
                         Text("Your Score is: \(userScore)")
                             .font(.title)
-                        ImageCarouselView()
+                        ImageCarouselView(isAnimating:$isAnimating, currentAppChoice:$currentAppChoice)
                         Text("Select your option")
                             .font(.largeTitle)
                             .padding(.top,100)
@@ -69,7 +70,7 @@ struct ContentView: View {
     
     //Funcion para calcular el score
     func calculateScore(withMove currentUserChoice: Int){
-        //currentAppChoice = Int.random(in: 0 ..< 3)
+        currentAppChoice = Int.random(in: 0 ..< 3)
         
         if currentAppChoice == currentUserChoice{
             userScore += 0

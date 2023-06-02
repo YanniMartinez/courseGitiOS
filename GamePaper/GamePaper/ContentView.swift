@@ -19,7 +19,7 @@ struct ContentView: View {
                     .font(.title)
                 Text("Your Score is: ")
                     .font(.title)
-                
+                ImageCarouselView()
                 Text("Select your option")
                     .font(.largeTitle)
                     .padding(.top,100)

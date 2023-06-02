@@ -10,7 +10,11 @@ import SwiftUI
 struct ContentView: View {
     
     let moves = ["Rock","Paper","Scissors"]
+    //CPU Variable
+    @State private var currentAppChoice = Int.random(in: 0 ..< 3)
     @State private var showingAlert = false
+    @State private var currentStep = 1
+    @State private var userScore = 0
     
     var body: some View {
         ZStack{
@@ -19,9 +23,11 @@ struct ContentView: View {
                 
                     
                     VStack(spacing: 45){
-                        Text("Steps: ")
+                        Text("maquina: \(currentAppChoice)")
                             .font(.title)
-                        Text("Your Score is: ")
+                        Text("Steps: \(currentStep)/10")
+                            .font(.title)
+                        Text("Your Score is: \(userScore)")
                             .font(.title)
                         ImageCarouselView()
                         Text("Select your option")
@@ -33,7 +39,13 @@ struct ContentView: View {
                             Button(action: {
                                 //TODO: Accion a realizar cuando el usuario presione el boton
                                 
-                                showingAlert.toggle()
+                                if self.currentStep == 10{
+                                    self.currentStep = 0
+                                    self.showingAlert = true
+                                }else{
+                                    
+                                    self.calculateScore(withMove: moveId)
+                                }
                             }){
                                 Image("\(self.moves[moveId])")
                                     .resizable()
@@ -53,6 +65,41 @@ struct ContentView: View {
             
             
         }
+    }
+    
+    //Funcion para calcular el score
+    func calculateScore(withMove currentUserChoice: Int){
+        //currentAppChoice = Int.random(in: 0 ..< 3)
+        
+        if currentAppChoice == currentUserChoice{
+            userScore += 0
+        }else {
+            switch currentAppChoice{
+            case 0: //roc
+                if currentUserChoice == 1 {
+                    userScore += 1
+                }else{
+                    userScore -= 1
+                }
+            case 1: //Paper
+                if currentUserChoice == 2 {
+                    userScore += 1
+                }else{
+                    userScore -= 1
+                }
+            case 2: //Scissors
+                if currentUserChoice == 0 {
+                    userScore += 1
+                }else{
+                    userScore -= 1
+                }
+            default:
+                break
+            }
+        }
+        
+        
+        currentStep += 1
     }
 }
 

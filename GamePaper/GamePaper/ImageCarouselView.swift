@@ -13,9 +13,7 @@ struct ImageCarouselView: View {
     @State private var currentIndex = Int.random(in: 0..<3)
     
     var body: some View {
-        Text(moves[currentIndex] )
-            .aspectRatio(contentMode: .fit)
-            .animation(.easeInOut(duration: 0.5))
+        Image("\(moves[currentIndex])" )
 
     }
 }

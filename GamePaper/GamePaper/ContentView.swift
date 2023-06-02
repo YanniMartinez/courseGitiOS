@@ -30,11 +30,12 @@ struct ContentView: View {
                     HStack{
                         ForEach(0 ..< moves.count){ moveId in
                             Button(action: {
+                                //TODO: Accion a realizar cuando el usuario presione el boton
                                 
                             }){
-                                Text("\(self.moves[moveId])")
+                                Image("\(self.moves[moveId])")
+                                    .resizable()
                                     .frame(width: 80,height: 100)
-                                    .foregroundColor(.white)
                             }
                             .frame(width: 100,height: 100,alignment: .center)
                             

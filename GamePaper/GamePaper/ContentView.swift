@@ -38,6 +38,11 @@ struct ContentView: View {
                     HStack{
                         ForEach(0 ..< moves.count){ moveId in
                             Button(action: {
+                                
+                                isAnimating.toggle()
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                                    isAnimating.toggle()
+                                }
                                 //TODO: Accion a realizar cuando el usuario presione el boton
                                 
                                 if self.currentStep == 10{

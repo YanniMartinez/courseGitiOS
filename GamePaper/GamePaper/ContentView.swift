@@ -15,6 +15,7 @@ struct ContentView: View {
     @State private var showingAlert = false
     @State private var currentStep = 1
     @State private var userScore = 0
+    @State private var userSelected = -1
     @State var isAnimating = true
     
     var body: some View {
@@ -49,7 +50,7 @@ struct ContentView: View {
                                     self.currentStep = 0
                                     self.showingAlert = true
                                 }else{
-                                    
+                                    self.userSelected = moveId
                                     self.calculateScore(withMove: moveId)
                                 }
                             }){
@@ -58,6 +59,7 @@ struct ContentView: View {
                                     .frame(width: 80,height: 100)
                             }
                             .frame(width: 100,height: 100,alignment: .center)
+                            .scaleEffect( userSelected == moveId ? 1.5 : 1.0)
                             .alert(isPresented: self.$showingAlert){
                                 //TODO: Presentara el score del usuario y sabra si gano o perdio tras X intentos
                                 Alert(title: Text("Hello"),
